@@ -1,0 +1,1 @@
+<?php $db=new PDO('mysql:host=localhost;dbname=DB_EVASIO;port:3306','root','root'); ?>
