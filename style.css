@@ -1,5 +1,5 @@
 *,
-* {
+*::before *::after {
     box-sizing: border-box;
 }
 
@@ -27,7 +27,7 @@ nav {
     width: 200px;
     margin: auto;
     height: 50%;
-    /* border: red 1px solid; */
+    transition-property: transform;
 }
 
 .navOuvert .nav {
@@ -57,7 +57,6 @@ ul {
 a {
     color: black;
     text-decoration: none;
-    /* border: blue 1px solid; */
 }
 
 a:hover {
@@ -120,6 +119,11 @@ a:hover {
 
 /* fin de style nav */
 
+.engMain {
+    display: flex;
+    flex-direction: column;
+}
+
 .ariane {
     color: white;
     margin-left: 10px;
@@ -153,27 +157,131 @@ iframe {
 }
 
 
-/* début page Enigmes */
+/* balise main de la page enigmes.php */
+
+.engmain {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+
+/* .ddddd {
+    width: 80%;
+    padding-left: 50px;
+    text-decoration: justify;
+    margin-right: 10px;
+} */
 
 .ImgEnig {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    flex-direction: column;
-    width: fit-content;
-}
-
-.ImgEnig img {
-    margin: 30px;
-}
-
-.EsRimg:hover {
-    cursor: pointer;
+    width: 30%;
+    text-align: center;
+    margin: 10px;
 }
 
 #filtre-select {
     float: right;
     margin-right: 10px;
+    padding: 4px;
+}
+
+
+/* début affiche_detail.php */
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+.description {
+    align-items: center;
+    max-width: 75%;
+}
+
+.imgDetail {
+    margin-left: 10%;
+}
+
+.detail {
+    display: flex
+}
+
+.indice {
+    color: white;
+    margin-left: 50px;
+}
+
+.Warning {
+    margin-left: 50px;
+    background-color: rgba(255, 0, 0, 0.8);
+}
+
+.resa {
+    color: black;
+    background-color: #fff;
+    width: auto;
+    padding: 10px;
+}
+
+
+/* début page réservation */
+
+#Escape {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    border: white 1px solid;
+    margin-left: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-left: 25%;
+    width: 50%;
+    margin-top: 20px;
+}
+
+form input {
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: #fff;
+}
+
+.valid {
+    width: 25%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.requier {
+    color: white;
+}
+
+
+/* page de confirmation */
+
+.mainconfirm {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.imgconfirm {
+    background-color: white;
+    width: 50%;
+    margin: auto;
+}
+
+.mainback {
+    color: white;
+    margin-left: 10px;
+}
+
+.confirm {
+    font-family: 'Poppins', sans-serif;
 }
 
 @media screen and (max-width:900px) {
@@ -189,5 +297,15 @@ iframe {
     }
     iframe {
         width: 80%;
+    }
+    .ImgEnig {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width:700px) {
+    form {
+        width: 80%;
+        margin-left: 10%;
     }
 }
