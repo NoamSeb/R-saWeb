@@ -6,8 +6,6 @@ $requete = ('SELECT * FROM PRODUIT ');
 // WHERE id_produit={$_GET["id"]}
 $stmt = $db->query($requete);
 $result = $stmt->fetchall();
-// $insertion="INSERT INTO CLIENT (nom,prenom,email) VALUES ('$nom',$prenom,$mail)"; 
-// $db->query($insertion);
 ?>
 
 <head>
@@ -16,8 +14,8 @@ $result = $stmt->fetchall();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="medias/icon_clé.svg">
     <link rel="stylesheet" href="style.css">
-    <script src="js/resa.js"></script>
-    <title>Document</title>
+    <script src="script.js"></script>
+    <title>Evasion</title>
 </head>
 
 <body>
@@ -66,9 +64,9 @@ $result = $stmt->fetchall();
             <?php } ?>
         </select>
         <form action="confirm.php" method="POST">
-            <input type="text" name="name" id="name" placeholder="Entrez votre prénom :*" required>
+            <input type="text" name="FirstName" id="FirstNname" placeholder="Entrez votre prénom :*" required>
             <input type="text" name="name" id="name" placeholder="Entrez votre nom :*" required>
-            <input type="text" name="name" id="name" placeholder="Entrez votre adresse email :*" required>
+            <input type="text" name="mail" id="mail" placeholder="Entrez votre adresse email :*" required>
             <p class="requier">* Requis</p>
             <a href="confirm.php" class="valid"><input type="submit" value="Réserver !"></a>
         </form>

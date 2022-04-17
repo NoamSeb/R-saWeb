@@ -10,11 +10,5 @@ document.addEventListener("DOMContentLoaded", function() {
         nav.classList.toggle('ouvert');
         navOuvert.style.display = "block";
     });
-    const filtre = document.querySelector('.filtres');
-    const esR = document.querySelector('.EsRimg');
-    // filtre.addEventListener('change', (event) => {
-    //     const result = document.querySelector('.result');
-    //     result.textContent = `You like ${event.target.value}`;
-    // });
 
 });

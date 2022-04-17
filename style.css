@@ -149,33 +149,45 @@ iframe {
 
 .js-slider {
     width: auto;
+    text-align: center;
 }
 
 .js-photos {
     display: flex;
     align-items: center;
+    width: 46%;
+    text-align: center;
+    /* overflow: hidden; */
+}
+
+.slider img {
+    float: left;
+}
+
+.slider h2 {
+    float: right;
+}
+
+.js-name {
+    background-color: #fff;
+    width: 23%;
+    padding: 20%;
+}
+
+.EscNameSlider {
+    color: black;
 }
 
 
 /* balise main de la page enigmes.php */
 
-.engmain {
-    width: 100%;
+.engMain {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
 }
-
-
-/* .ddddd {
-    width: 80%;
-    padding-left: 50px;
-    text-decoration: justify;
-    margin-right: 10px;
-} */
 
 .ImgEnig {
     width: 30%;
+    display: flex;
     text-align: center;
     margin: 10px;
 }
@@ -184,6 +196,11 @@ iframe {
     float: right;
     margin-right: 10px;
     padding: 4px;
+    border-radius: 10px;
+}
+
+#ValidFilter {
+    border-radius: 10px;
 }
 
 
@@ -252,8 +269,8 @@ form input {
 
 .valid {
     width: 25%;
-    text-align: center;
     margin-top: 20px;
+    text-align: center;
 }
 
 .requier {
@@ -298,7 +315,10 @@ form input {
     iframe {
         width: 80%;
     }
-    .ImgEnig {
+    .js-photos {
+        flex-direction: column;
+    }
+    .engMain {
         flex-direction: column;
     }
 }
