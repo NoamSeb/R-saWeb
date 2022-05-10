@@ -183,6 +183,8 @@ iframe {
 
 .engMain {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .ImgEnig {
@@ -221,7 +223,7 @@ h1 {
 }
 
 .detail {
-    display: flex
+    display: flex;
 }
 
 .indice {
@@ -315,10 +317,10 @@ form input {
     iframe {
         width: 80%;
     }
-    .js-photos {
+    .engMain {
         flex-direction: column;
     }
-    .engMain {
+    .details {
         flex-direction: column;
     }
 }

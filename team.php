@@ -48,6 +48,9 @@
 
     </nav>
     <p class="ariane"><span class="arianePass">Accueil </span>/ Qui sommes nous</p>
+    <main>
+        
+    </main>
 </body>
 
 </html>

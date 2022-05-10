@@ -56,19 +56,26 @@ $result = $stmt->fetchall();
     </nav>
     <p class="ariane"><span class="arianePass">Accueil </span>/ Réservation</p>
     <main>
-        <select name="Enigmes" id="Escape">
+
+        <form action="confirm.php" method="POST">
+        <select name="enigmes" id="Escape">
             <option value="">choisissez une escape room</option required>
             <?php foreach ($result as $r) { ?>
-                
-                <option value="<?= $r['value'] ?>"><?= $r['nom'] ?></option>
+
+                <option value="<?= $r['id_produit'] ?>"><?= $r['nom'] ?></option>
             <?php } ?>
         </select>
-        <form action="confirm.php" method="POST">
-            <input type="text" name="FirstName" id="FirstNname" placeholder="Entrez votre prénom :*" required>
-            <input type="text" name="name" id="name" placeholder="Entrez votre nom :*" required>
-            <input type="text" name="mail" id="mail" placeholder="Entrez votre adresse email :*" required>
+            <p class="requier">Entrez votre prénom *</p>
+            <input type="text" name="prenom" id="prenom" placeholder="ex : Noam" required>
+            <br>
+            <p class="requier">Entrez votre nom *</p>
+            <input type="text" name="nom" id="nom" placeholder="ex : Sebahoun" required>
+            <br>
+            <p class="requier">Entrez votre adresse e-mail *</p>
+            <input type="text" name="email" id="email" placeholder="ex : prénom.nom@xyz.fr" required>
+            <br>
             <p class="requier">* Requis</p>
-            <a href="confirm.php" class="valid"><input type="submit" value="Réserver !"></a>
+            <input type="submit" value="Réserver !">
         </form>
         <?php
         if (isset($_POST["contenu"])) {

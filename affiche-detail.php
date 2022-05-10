@@ -15,7 +15,7 @@
     $stmt = $db->query($requete);
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-
+    $produit = $_GET["id"];
     ?>
 </head>
 
@@ -80,31 +80,16 @@
         <br>
         <p class="requier">Entrez votre nom *</p>
         <input type="text" name="nom" id="nom" placeholder="ex : Sebahoun" required>
+        <input type="text"  name="id" hidden value="<?= $produit; ?>">
         <br>
         <p class="requier">Entrez votre adresse e-mail *</p>
         <input type="text" name="email" id="email" placeholder="ex : prénom.nom@xyz.fr" required>
         <br>
         <p class="requier">* Requis</p>
         <input type="submit" value="Réserver !">
+        
     </form>
-    <?php
-    $prenom = $_GET["prenom"];
-    $nom = $_GET["nom"];
-    $email = $_GET["email"];
-
-    $Insert = "INSERT INTO CLIENT (prenom,nom,email) VALUES ('$prenom',$nom,$email)";
-    $db->query($Insert);
-    var_dump($Insert);
-    ?>
-    <?php
-    if (isset($_POST["contenu"])) {
-        $contenu = "<h1>" . $_POST["contenu"] . "</h1>";
-        $headers[] = 'MIME-Version: 1.0';
-        $headers[] = 'Content-type: text/html; charset=iso-8859-1';
-
-        mail('noam.sebahoun@egmail.com', 'test subject', $contenu, implode("\r\n", $headers));
-        echo "Mail envoyé";
-    } ?>
+    
 </body>
 
 </html>
