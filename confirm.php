@@ -7,6 +7,8 @@ $prenom = $_POST["prenom"] ?? "";
 $nom = $_POST["nom"] ?? "";
 $email = $_POST["email"] ?? "";
 $id_produit = $_POST["enigmes"] ?? $_POST["id"] ?? "";
+$date = $_POST["date"] ?? "";
+
 
 // On vérifie si tous les paramètres sont bien remplis dans le formulaire. Sinon erreur.
 if (!empty($email) && !empty($nom) && !empty($prenom)) {
@@ -27,15 +29,10 @@ if (!empty($email) && !empty($nom) && !empty($prenom)) {
 
     // Si le client existe et que le produit existe aussi, alors on insère la commande.
     if (!empty($client) && !empty($id_produit)) {
-        $InsertCo = "INSERT INTO COMMANDE (ext_client,ext_produit) VALUE ('$client_id','$id_produit')";
+        $InsertCo = "INSERT INTO COMMANDE (ext_client,ext_produit, date) VALUE ('$client_id','$id_produit', '$date')";
         $db->query($InsertCo);
-
     }
 }
-
-//$InsertCl = "INSERT INTO CLIENT (prenom,nom,email) VALUES ('$prenom','$nom','$email')";
-//$db->query($InsertCl);
-
 ?>
 
 <head>
@@ -47,21 +44,21 @@ if (!empty($email) && !empty($nom) && !empty($prenom)) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-    <title>Evasion</title>
+    <title>Evasio</title>
 </head>
 
 <body>
-    <p><a href="main.php" class="mainback"> Retour à l'accueil</a></p>
+    <p><a href="index.php" class="mainback"> Retour à l'accueil</a></p>
     <main class="mainconfirm">
         <?php if (isset($InsertCo)){?>
             <h1 class="confirm"> Merci d'avoir commandé chez</h1>
             <img src="medias/Evasio_logo.svg" class="imgconfirm">
-            <h3 class="confirm"> Vous recevrez bientôt un mail de confirmation </h3>
+            <h2 class="confirm"> Vous recevrez bientôt un mail de confirmation </h2>
             <?php include('mail.php')?>
         <?php } else {?>
             <h1 class="confirm"> ERREUR</h1>
             <img src="medias/hackerman.webp" class="imgconfirm">
-            <h3 class="confirm"> Veuillez remplir correctement le formulaire </h3>
+            <h2 class="confirm"> Veuillez remplir correctement le formulaire </h2>
         <?php } ?>
     </main>
 </body>

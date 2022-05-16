@@ -4,8 +4,8 @@
 include('connexion.php');
 $requete = ('SELECT * FROM PRODUIT, GENRE WHERE id_genre=ext_genre');
 
-if(isset($_GET['filtres']) && $_GET['filtres']!='') {
-    $requete .= " AND id_genre=".$_GET['filtres'];
+if (isset($_GET['filtres']) && $_GET['filtres'] != '') {
+    $requete .= " AND id_genre=" . $_GET['filtres'];
 }
 
 $stmt = $db->query($requete);
@@ -24,13 +24,13 @@ $resr = $stgr->fetchall();
     <link rel="icon" href="medias/icon_clé.svg">
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
-    <title>Evasion</title>
+    <title>Evasio</title>
 </head>
 
 <body>
     <nav>
         <ul>
-            <a href="main.php"><img src="medias/Evasio_logo.svg" class="logo"></a>
+            <a href="index.php"><img src="medias/Evasio_logo.svg" class="logo"></a>
             <a href="enigmes.php" class="nav">
                 <li>Enigmes</li>
             </a>
@@ -41,7 +41,7 @@ $resr = $stgr->fetchall();
                 <li>Qui sommes nous</li>
             </a>
             <a href="mentions.php" class="nav">
-                <li>Mentions</li>
+                <li>Mentions Légales</li>
             </a>
             <div class="burger">
                 <span></span>
@@ -58,31 +58,36 @@ $resr = $stgr->fetchall();
                 <li>Qui sommes nous</li>
             </a>
             <a href="mentions.php" class="nav">
-                <li>Mentions</li>
+                <li>Mentions Légales</li>
             </a>
         </ul>
     </nav>
-    <p class="ariane"><span class="arianePass">Accueil </span>/ Enigmes</p>
-    <form action="enigmes.php" method="GET">
-        <select class="filtres" name="filtres" id="filtre-select">
-            <option value="">Filtrer</option>
-            <?php foreach ($resr as $rg) {
-                var_dump($rg); ?>
+    <p class="ariane"><a href="index.php"><span class="arianePass">Accueil </span></a>/ Enigmes</p>
+    <form action="enigmes.php" method="GET" class="tri">
+        <div class="filtres">
+            <select name="filtres" id="filtre-select">
+                <option value="">Filtrer</option>
+                <?php foreach ($resr as $rg) {
+                    var_dump($rg); ?>
 
-                <option value="<?= $rg['id_genre'] ?>"><?= $rg['genre'] ?></option>
-            <?php } ?>
-
-            <input type="submit" value="valider" id="ValidFilter">
+                    <option value="<?= $rg['id_genre'] ?>"><?= $rg['genre'] ?></option>
+                <?php } ?>
+                <input type="submit" value="valider" id="ValidFilter">
+            </select>
+        </div>
     </form>
 
-    </select>
+
     <main class="engmain">
-        <br>
         <?php foreach ($result as $r) { ?>
             <div class="ImgEnig">
-                <a href='affiche-detail.php?id=<?= $r["id_produit"] ?>'><img src="<?= $r['image'] ?>-640-light.jpg" alt="" srcset="<?= $r['image'] ?>-320-light.jpg,
+                <div class="enigNameImg">
+                    <a href='affiche-detail.php?id=<?= $r["id_produit"] ?>'><img src="<?= $r['image'] ?>-640-light.jpg" alt="" srcset="<?= $r['image'] ?>-320-light.jpg,
                     <?= $r['image'] ?>-640-light.jpg 2x,
-                    <?= $r['image'] ?>-1024-light.jpg 3x"></a>
+                    <?= $r['image'] ?>-1024-light.jpg 3x">
+                        <h1><?= $r['nom'] ?></h1>
+                    </a>
+                </div>
             </div>
         <?php } ?>
     </main>

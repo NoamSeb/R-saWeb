@@ -27,7 +27,6 @@ nav {
     width: 200px;
     margin: auto;
     height: 50%;
-    transition-property: transform;
 }
 
 .navOuvert .nav {
@@ -133,31 +132,86 @@ a:hover {
     color: rgba(255, 255, 255, 0.5)
 }
 
-h2 {
+.homeTitle {
     color: white;
+    text-align: left;
     margin-left: 10px;
+    font-family: 'Poppins', sans-serif;
 }
 
-h3 {
+p {
     margin-left: 50px;
     color: white;
+    font-family: 'Poppins', sans-serif;
 }
 
 iframe {
     margin: 50px;
 }
 
+.SliderAll {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .js-slider {
-    width: auto;
-    text-align: center;
+    position: relative;
+    width: 1000px;
+    height: 500px;
+    overflow: hidden;
 }
 
 .js-photos {
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    left: -500px;
     display: flex;
+    transition: left 0.3s ease-out;
+}
+
+.js-photos.no-anime {
+    transition: none;
+}
+
+.js-photo {
+    position: relative;
+    width: 1000px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    width: 46%;
     text-align: center;
-    /* overflow: hidden; */
+    flex: none;
+    background-color: #fff;
+    color: white;
+    font-size: 2em;
+}
+
+
+/* .fleche {
+    position: relative;
+} */
+
+.okk,
+.ok {
+    position: absolute;
+    top: 125px;
+    cursor: pointer;
+    width: 50px;
+}
+
+.arrowRight {
+    margin-left: 10px;
+    height: 40px;
+    right: -80px;
+}
+
+.arrowLeft {
+    margin-right: 10px;
+    height: 40px;
+    left: -80px;
 }
 
 .slider img {
@@ -174,35 +228,75 @@ iframe {
     padding: 20%;
 }
 
+.test {
+    background-color: #fff;
+    width: 500px;
+}
+
 .EscNameSlider {
     color: black;
+    font-family: serif;
 }
 
 
 /* balise main de la page enigmes.php */
 
-.engMain {
+.engmain {
+    width: 90vw;
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 10px;
+    margin: auto;
+    justify-content: space-around;
 }
 
 .ImgEnig {
     width: 30%;
-    display: flex;
+    background-color: white;
+}
+
+.enigNameImg {
     text-align: center;
-    margin: 10px;
+}
+
+.enigNameImg img {
+    width: 100%;
+}
+
+.enigNameImg h1 {
+    color: black;
+    text-align: center;
+    font-family: serif;
+}
+
+.tri {
+    margin: 2%;
+    float: right;
+    width: 20%;
+}
+
+.filtres {
+    display: flex;
+    width: 20%;
+    height: 30px;
+    text-align: right;
+    justify-content: center;
 }
 
 #filtre-select {
-    float: right;
-    margin-right: 10px;
     padding: 4px;
     border-radius: 10px;
 }
 
+.FilterResearch {
+    display: flex;
+}
+
 #ValidFilter {
     border-radius: 10px;
+    height: 30px;
+    margin: 0;
 }
 
 
@@ -211,11 +305,16 @@ iframe {
 h1 {
     color: white;
     text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+h4 {
+    font-family: 'Poppins', sans-serif;
 }
 
 .description {
     align-items: center;
-    max-width: 75%;
+    max-width: 60%;
 }
 
 .imgDetail {
@@ -224,6 +323,7 @@ h1 {
 
 .detail {
     display: flex;
+    justify-content: center;
 }
 
 .indice {
@@ -262,7 +362,7 @@ form {
     margin-top: 20px;
 }
 
-form input {
+.Resa {
     padding: 20px;
     margin-top: 10px;
     border-radius: 10px;
@@ -299,9 +399,61 @@ form input {
     margin-left: 10px;
 }
 
+h2 {
+    color: white;
+}
+
 .confirm {
     font-family: 'Poppins', sans-serif;
 }
+
+
+/* Début page Team. */
+
+.team {
+    margin: 20px
+}
+
+.brand {
+    text-align: center;
+}
+
+.creator {
+    display: flex;
+    align-items: center;
+    max-width: 70%;
+    text-align: center;
+    margin: auto;
+}
+
+.creator img {
+    width: 20%;
+    height: auto;
+    text-align: center;
+}
+
+.partenaire {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    max-width: 70%;
+    margin: auto;
+}
+
+.partenaire img {
+    width: 50%;
+    height: auto;
+    text-align: center;
+}
+
+.mentions {
+    text-align: center;
+    max-width: 80%;
+    margin: auto;
+}
+
+
+/* page de mentions */
 
 @media screen and (max-width:900px) {
     .burger {
@@ -317,10 +469,20 @@ form input {
     iframe {
         width: 80%;
     }
+    .SliderAll {
+        width: 100%
+    }
     .engMain {
         flex-direction: column;
     }
     .details {
+        flex-direction: column;
+    }
+    .ImgEnig {
+        width: 45%;
+    }
+    .creator,
+    .partenaire {
         flex-direction: column;
     }
 }
@@ -329,5 +491,12 @@ form input {
     form {
         width: 80%;
         margin-left: 10%;
+    }
+    .ImgEnig {
+        width: 90%;
+    }
+    .detail {
+        flex-direction: column;
+        align-items: center;
     }
 }

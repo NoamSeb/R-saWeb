@@ -15,13 +15,13 @@ $result = $stmt->fetchall();
     <link rel="icon" href="medias/icon_clé.svg">
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
-    <title>Evasion</title>
+    <title>Evasio</title>
 </head>
 
 <body>
     <nav>
         <ul>
-            <a href="main.php"><img src="medias/Evasio_logo.svg" class="logo"></a>
+            <a href="index.php"><img src="medias/Evasio_logo.svg" class="logo"></a>
             <a href="enigmes.php" class="nav">
                 <li>Enigmes</li>
             </a>
@@ -32,7 +32,7 @@ $result = $stmt->fetchall();
                 <li>Qui sommes nous</li>
             </a>
             <a href="mentions.php" class="nav">
-                <li>Informations</li>
+                <li>Mentions Légales</li>
             </a>
             <div class="burger">
                 <span></span>
@@ -49,43 +49,38 @@ $result = $stmt->fetchall();
                 <li>Qui sommes nous</li>
             </a>
             <a href="mentions.php" class="nav">
-                <li>Informations</li>
+                <li>Mentions Légales</li>
             </a>
         </ul>
 
     </nav>
-    <p class="ariane"><span class="arianePass">Accueil </span>/ Réservation</p>
+    <p class="ariane"><a href="index.php"><span class="arianePass">Accueil </span></a>/ Réservation</p>
     <main>
 
         <form action="confirm.php" method="POST">
-        <select name="enigmes" id="Escape">
-            <option value="">choisissez une escape room</option required>
-            <?php foreach ($result as $r) { ?>
+            <select name="enigmes" id="Escape">
+                <option value="">choisissez une escape room</option required>
+                <?php foreach ($result as $r) { ?>
 
-                <option value="<?= $r['id_produit'] ?>"><?= $r['nom'] ?></option>
-            <?php } ?>
-        </select>
+                    <option value="<?= $r['id_produit'] ?>"><?= $r['nom'] ?></option>
+                <?php } ?>
+            </select>
+            <p class="requier">Entrez la date de réservation *</p>
+            <input type="date" name="date" id="date" min="2022-05-12" required class="Resa">
             <p class="requier">Entrez votre prénom *</p>
-            <input type="text" name="prenom" id="prenom" placeholder="ex : Noam" required>
+            <input type="text" name="prenom" id="prenom" placeholder="ex : Noam" required class="Resa">
             <br>
             <p class="requier">Entrez votre nom *</p>
-            <input type="text" name="nom" id="nom" placeholder="ex : Sebahoun" required>
+            <input type="text" name="nom" id="nom" placeholder="ex : Sebahoun" required class="Resa">
             <br>
             <p class="requier">Entrez votre adresse e-mail *</p>
-            <input type="text" name="email" id="email" placeholder="ex : prénom.nom@xyz.fr" required>
+            <input type="text" name="email" id="email" placeholder="ex : prénom.nom@xyz.fr" required class="Resa">
+            <br>
+
             <br>
             <p class="requier">* Requis</p>
-            <input type="submit" value="Réserver !">
+            <input type="submit" value="Réserver !" class="Resa">
         </form>
-        <?php
-        if (isset($_POST["contenu"])) {
-            $contenu = "<h1>" . $_POST["contenu"] . "</h1>";
-            $headers[] = 'MIME-Version: 1.0';
-            $headers[] = 'Content-type: text/html; charset=iso-8859-1';
-
-            mail('noam.sebahoun@edu.univ-eiffel.fr', 'test subject', $contenu, implode("\r\n", $headers));
-            echo "Mail envoyé";
-        } ?>
     </main>
 
 
